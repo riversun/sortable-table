@@ -1,6 +1,6 @@
 # @riversun/sortable-table
 
-[![npm version](https://badge.fury.io/js/%40riversun%2Fsortable-table.svg)](https://badge.fury.io/js/%40riversun%2Fsortable-table)
+[![npm version](https://badge.fury.io/js/%40riversun%2Fsortable-table.png)](https://badge.fury.io/js/%40riversun%2Fsortable-table)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/riversun/sortable-table.svg?style=shield)](https://circleci.com/gh/riversun/sortable-table)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bd35641c855b4556afc1076c294f110d)](https://app.codacy.com/manual/riversun/sortable-table?utm_source=github.com&utm_medium=referral&utm_content=riversun/sortable-table&utm_campaign=Badge_Grade_Dashboard)

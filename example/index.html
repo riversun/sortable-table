@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="riversun">
+
+</head>
+<body>
+
+<div class="sortable-table">
+    <table id="my-table1">
+        <thead>
+        <tr>
+            <th data-id="id" data-header>
+                <div>#</div>
+            </th>
+            <th data-id="name" sortable>
+                name
+            </th>
+            <th data-id="price" sortable>
+                price($)
+            </th>
+            <th data-id="weight" sortable>
+                weight(carat)
+            </th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<hr>
+<h5>Sort by code</h5>
+<div>
+    <button id="btnSortName">Sort by Name(toggle)</button>
+    <button id="btnSortPrice">Sort by Price(asc)</button>
+    <button id="btnSortWeight">Sort by Weight(desc)</button>
+    <button id="btnReset">Reset</button>
+</div>
+
+<script src="sortable-table.js"></script>
+<script>
+
+  const data = [
+    {
+      id: 0,
+      name: 'Diamond',
+      weight: 1.0,
+      price: 9000,
+    },
+    {
+      id: 1,
+      name: 'Amethyst',
+      weight: 3.0,
+      price: 200,
+    },
+    {
+      id: 2,
+      name: 'Emerald',
+      weight: 2.5,
+      price: 2500,
+    },
+    {
+      id: 3,
+      name: 'Ruby',
+      weight: 2.0,
+      price: 2000,
+    },
+  ];
+
+  const sortableTable = new SortableTable();
+  // set table element
+  sortableTable.setTable(document.querySelector('#my-table1'));
+  // set data to be sorted
+  sortableTable.setData(data);
+  // handling events
+  sortableTable.events()
+    .on('sort', (event) => {
+      console.log(`[SortableTable#onSort]
+      event.colId=${event.colId}
+      event.sortDir=${event.sortDir}
+      event.data=\n${JSON.stringify(event.data)}`);
+    });
+
+  // button handlers
+  document.querySelector('#btnSortName')
+    .addEventListener('click', () => {
+      sortableTable.sort('name', 'toggle');//'asc','desc','toggle'
+    });
+  document.querySelector('#btnSortPrice')
+    .addEventListener('click', () => {
+      sortableTable.sort('price', 'asc');
+    });
+  document.querySelector('#btnSortWeight')
+    .addEventListener('click', () => {
+      sortableTable.sort('weight', 'desc');
+    });
+  document.querySelector('#btnReset')
+    .addEventListener('click', () => {
+      sortableTable.resetData();
+    });
+
+
+</script>
+</body>
+</html>

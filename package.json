@@ -1,0 +1,59 @@
+{
+  "name": "@riversun/sortable-table",
+  "version": "1.0.0",
+  "description": "Library template for both node and browser using ES6,Webpack,Babel,Jest,ESLint",
+  "main": "lib/sortable-table.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js",
+    "start:node": "node example/example-run-on-node-js.js",
+    "build": "webpack --config webpack.config.js",
+    "release:library": "webpack --config webpack.config.js --mode production",
+    "release": "run-s test:coverage docs release:library",
+    "test": "jest -i",
+    "test:coverage": "npm run test -- --coverage",
+    "docs": "run-s jsdoc jsdoc2md",
+    "jsdoc": "npx jsdoc src/sortable-table.js -d docs",
+    "jsdoc2md": "jsdoc2md src/sortable-table.js > api.md"
+  },
+  "author": "Tom Misawa <riversun.org@gmail.com> (https://github.com/riversun)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riversun/sortable-table.git"
+  },
+  "bugs": {
+    "url": "https://github.com/riversun/sortable-table/issues"
+  },
+  "homepage": "https://github.com/riversun/sortable-table#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "coveralls": "^3.0.9",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^25.1.0",
+    "jsdoc": "^3.6.3",
+    "jsdoc-to-markdown": "^5.0.3",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "terser-webpack-plugin": "^2.3.5",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@riversun/event-emitter": "^1.1.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

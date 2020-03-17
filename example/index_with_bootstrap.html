@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Sortable-table on Bootstrap</a>
+    </nav>
+</header>
+
+
+<div class="container-fluid">
+
+
+    <div class="row">
+
+        <div class="p-1 col-sm-12 sortable-table">
+
+            <table class="table table-hover table-bordered" id="my-table1">
+                <thead>
+                <tr>
+                    <th scope="col" data-id="id" data-header>
+                        <div>#</div>
+                    </th>
+                    <th scope="col" data-id="name" sortable>
+                        name
+                    </th>
+                    <th scope="col" data-id="price" sortable>
+                        price($)
+                    </th>
+                    <th scope="col" data-id="weight" sortable>
+                        weight(carat)
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="p-1 col-sm-12">
+            <h5>Sort by code</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="p-1 col-sm-12 d-flex justify-content-around">
+            <button id="btnSortName" class="btn btn-primary m-1 w-100">Sort by Name(toggle)</button>
+            <button id="btnSortPrice" class="btn btn-primary m-1 w-100">Sort by Price(asc)</button>
+            <button id="btnSortWeight" class="btn btn-primary m-1 w-100">Sort by Weight(desc)</button>
+            <button id="btnReset" class="btn btn-primary m-1 w-100">Reset</button>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="sortable-table.js"></script>
+<script>
+
+  const data = [
+    {
+      id: 0,
+      name: 'Diamond',
+      weight: 1.0,
+      price: 9000,
+    },
+    {
+      id: 1,
+      name: 'Amethyst',
+      weight: 3.0,
+      price: 200,
+    },
+    {
+      id: 2,
+      name: 'Emerald',
+      weight: 2.5,
+      price: 2500,
+    },
+    {
+      id: 3,
+      name: 'Ruby',
+      weight: 2.0,
+      price: 2000,
+    },
+  ];
+
+  const sortableTable = new SortableTable();
+  // set table element
+  sortableTable.setTable(document.querySelector('#my-table1'));
+  // set data to be sorted
+  sortableTable.setData(data);
+  // handling events
+  sortableTable.events()
+    .on('sort', (event) => {
+      console.log(`[SortableTable#onSort]
+      event.colId=${event.colId}
+      event.sortDir=${event.sortDir}
+      event.data=\n${JSON.stringify(event.data)}`);
+    });
+
+  // button handlers
+  document.querySelector('#btnSortName')
+    .addEventListener('click', () => {
+      sortableTable.sort('name', 'toggle');//'asc','desc','toggle'
+    });
+  document.querySelector('#btnSortPrice')
+    .addEventListener('click', () => {
+      sortableTable.sort('price', 'asc');
+    });
+  document.querySelector('#btnSortWeight')
+    .addEventListener('click', () => {
+      sortableTable.sort('weight', 'desc');
+    });
+  document.querySelector('#btnReset')
+    .addEventListener('click', () => {
+      sortableTable.resetData();
+    });
+
+
+</script>
+</body>
+</html>

@@ -14,7 +14,8 @@
 }
 
 .sortable-table thead th.sort {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAkElEQVQ4T73UMQ6AIAyF4Z/E0dHRIzh4/1M4eARHR0cH0wQMMdBC0sgMH4VXCDiP4OzRAg7AEjfegVsrwgIFW4ExIhewaagGfrFUmIrWwBpmoiXQwlS0BEoAU2P6JyBBvaMEzp3gYYGNxZWnWW3Tjf9yZPdQ3NtG7s1Cq6/lt6eX0nX9HHLU7fty6cNuJF/wAAIWJBX1VHH6AAAAAElFTkSuQmCC");
+  //background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAkElEQVQ4T73UMQ6AIAyF4Z/E0dHRIzh4/1M4eARHR0cH0wQMMdBC0sgMH4VXCDiP4OzRAg7AEjfegVsrwgIFW4ExIhewaagGfrFUmIrWwBpmoiXQwlS0BEoAU2P6JyBBvaMEzp3gYYGNxZWnWW3Tjf9yZPdQ3NtG7s1Cq6/lt6eX0nX9HHLU7fty6cNuJF/wAAIWJBX1VHH6AAAAAElFTkSuQmCC");
+  background-image:url(sort-solid.svg);
 }
 
 .sortable-table thead th.sort-asc {

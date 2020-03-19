@@ -37,6 +37,11 @@ or
 <script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table@1.0.0/lib/sortable-table.js"></script>
 ```
 
+# Sort icons from fontawesome
+
+[license](https://fontawesome.com/license)
+
+
 # Usage
 
 ## HTML and code

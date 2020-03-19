@@ -10,18 +10,30 @@
   cursor: pointer;
   background-position: right;
   background-repeat: no-repeat;
+  //mask-position:right;
+  //mask-repeat: no-repeat;
+  //-webkit-mask-repeat: no-repeat;
+  //-webkit-mask-position:right;
   padding-right: 40px !important;
 }
 
 .sortable-table thead th.sort {
-  //background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAkElEQVQ4T73UMQ6AIAyF4Z/E0dHRIzh4/1M4eARHR0cH0wQMMdBC0sgMH4VXCDiP4OzRAg7AEjfegVsrwgIFW4ExIhewaagGfrFUmIrWwBpmoiXQwlS0BEoAU2P6JyBBvaMEzp3gYYGNxZWnWW3Tjf9yZPdQ3NtG7s1Cq6/lt6eX0nX9HHLU7fty6cNuJF/wAAIWJBX1VHH6AAAAAElFTkSuQmCC");
+  //icon from FontAwesome, see license at https://fontawesome.com/license
   background-image:url(sort-solid.svg);
+  background-size: 16px 16px;
+  //-webkit-mask-image: url(sort-solid.svg);
+  //mask-image: url(sort-solid.svg);
+  //-webkit-mask-size: 16px 16px;
 }
 
 .sortable-table thead th.sort-asc {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAgUlEQVQ4T+3SsQ2AIBCF4Z/eMdxCx3ARB7ByABdxDN3CMRzAkKCFHneQUFhwNXxc3sNReFxhjxSwAebw8ASc2hIW6LEFaANyAKOGauAbuxdT0RgYw0xUAi1MRSXQF9Antr8BvqhnJHAAukRwB1YLTLTkY9a3ycYrmB3Z50LN8IcZXsnkEhVNjPJpAAAAAElFTkSuQmCC");
+  //icon from FontAwesome, see license at https://fontawesome.com/license
+  background-image:url(sort-up-solid.svg);
+  background-size: 16px 16px;
 }
 
 .sortable-table thead th.sort-desc {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAfUlEQVQ4T2NkoDJgpLJ5DKMGUh6io2E4RMIwhIGBwZpItx5lYGBYg6wWWyw3MzAw2BBp4BEGBoZaQgbyMDAw9DMwMKgQMPQOAwNDIQMDwxdCBoLkCRmK1TCQRnwJG5ehOA0jZCA2l+I1jBgDYYaCIgoEQBGAEmbo4Tz48zIAQNgSFR9+d5MAAAAASUVORK5CYII=");
+  //icon from FontAwesome, see license at https://fontawesome.com/license
+  background-image:url(sort-down-solid.svg);
+  background-size: 16px 16px;
 }

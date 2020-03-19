@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
     mode: 'development',
     devServer: {
       open: true,
-      openPage: ['index.html','index_with_bootstrap.html'],
+      openPage: ['index.html', 'index_with_bootstrap.html'],
       contentBase: path.join(__dirname, 'example'),
       watchContentBase: true,
       port: 3000,
@@ -38,15 +38,16 @@ module.exports = (env, argv) => {
     },
 
     optimization: {
+      minimize: true,
       minimizer: [new TerserPlugin({
-        //extractComments: true,
-        //cache: true,
-        //parallel: true,
-        //sourceMap: true,
+        //terser option detail at https://github.com/terser/terser
+        sourceMap: false,
         terserOptions: {
           compress: {
             drop_console: true,
           },
+          //mangle: {},
+          output: {},
         },
         extractComments: false,
 
@@ -74,6 +75,12 @@ module.exports = (env, argv) => {
             { loader: 'sass-loader' },
           ]
         },
+        {
+          test: /\.(png|jpg|gif|svg)$/i,
+          use: [
+            { loader: 'url-loader' },
+          ]
+        },
       ],
 
     },
@@ -88,7 +95,10 @@ module.exports = (env, argv) => {
 
   if (argv.mode !== 'production') {
     conf.devtool = 'inline-source-map';
+  } else {
+    conf.devtool = false;
   }
+
 
   return conf;
 

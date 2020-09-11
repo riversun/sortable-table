@@ -29,6 +29,12 @@ This library makes tables sortable.
 npm install @riversun/sortable-table
 ```
 
+And import like,
+
+```
+import SortableTable from '@riversun/sortable-table';
+```
+
 or 
 
 - **use `<script>` tag**  from CDN
@@ -123,6 +129,166 @@ The **data-id** attribute is linked to the key in data.
 </html>
 
 ``` 
+
+
+## Custom rendering cells
+
+You can customize cell-rendering by specifying rendering function with #setCellRenderer like as follows. 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Sortable-table on Bootstrap</a>
+    </nav>
+</header>
+
+
+<div class="container-fluid">
+
+
+    <div class="row">
+
+        <div class="p-1 col-sm-12 sortable-table">
+
+            <table class="table table-hover table-bordered" id="my-table1">
+                <thead>
+                <tr>
+                    <th scope="col" data-id="id" data-header>
+                        <div>#</div>
+                    </th>
+                    <th scope="col" data-id="name" sortable>
+                        name
+                    </th>
+                    <th scope="col" data-id="url" sortable>
+                        url
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="p-1 col-sm-12">
+            <h5>Sort by code</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="p-1 col-sm-12 d-flex justify-content-around">
+            <button id="btnSortName" class="btn btn-primary m-1 w-100">Sort by Name(toggle)</button>
+            <button id="btnSortPrice" class="btn btn-primary m-1 w-100">Sort by Price(asc)</button>
+            <button id="btnSortWeight" class="btn btn-primary m-1 w-100">Sort by Weight(desc)</button>
+            <button id="btnReset" class="btn btn-primary m-1 w-100">Reset</button>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="sortable-table.js"></script>
+<script>
+
+  const data = [
+    {
+      id: 0,
+      name: 'Apple',
+      url: 'https://www.apple.com'
+    },
+    {
+      id: 1,
+      name: 'Amazon',
+      url: 'https://www.amazon.com'
+    },
+    {
+      id: 2,
+      name: 'Google',
+      url: 'https://www.google.com'
+    },
+    {
+      id: 3,
+      name: 'Facebook',
+      url: 'https://www.facebook.com'
+    },
+  ];
+
+  const sortableTable = new SortableTable();
+  // set table element
+  sortableTable.setTable(document.querySelector('#my-table1'));
+
+  // set callback function for table cell custom rendering
+  sortableTable.setCellRenderer((col, row) => {
+    const colValue = row[col.id];
+    // cell-is-a-header
+    if (col.isHeader) {
+      if (typeof colValue !== 'undefined') {
+        return `<th>${colValue}</th>`;
+      }
+      return '<th></th>';
+    }
+    // cell-is-not-a-header
+    if (typeof colValue !== 'undefined') {
+      if (col.id === 'url') {
+        return `<td><a href="${colValue}" target="_blank">${colValue}</a></td>`;
+      }
+      return `<td>${colValue}</td>`;
+    }
+    return '<td></td>';
+  });
+  // set data to be sorted
+  sortableTable.setData(data);
+
+
+  // handling events
+  sortableTable.events()
+    .on('sort', (event) => {
+      console.log(`[SortableTable#onSort]
+      event.colId=${event.colId}
+      event.sortDir=${event.sortDir}
+      event.data=\n${JSON.stringify(event.data)}`);
+    });
+
+  // button handlers
+  document.querySelector('#btnSortName')
+    .addEventListener('click', () => {
+      sortableTable.sort('name', 'toggle');//'asc','desc','toggle'
+    });
+  document.querySelector('#btnSortPrice')
+    .addEventListener('click', () => {
+      sortableTable.sort('price', 'asc');
+    });
+  document.querySelector('#btnSortWeight')
+    .addEventListener('click', () => {
+      sortableTable.sort('weight', 'desc');
+    });
+  document.querySelector('#btnReset')
+    .addEventListener('click', () => {
+      sortableTable.resetData();
+    });
+
+
+</script>
+</body>
+</html>
+
+```
 
 # APIs and Methods
 

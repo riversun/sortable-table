@@ -321,19 +321,6 @@ export default class SortableTable {
       for (const colConf of this.colConfs.values()) {
         // const colData = rowData[colConf.id];
         trHtml += this.fnCellRender(colConf, row);
-        // if (colConf.isHeader) {
-        //   if (typeof colData !== 'undefined') {
-        //     trHtml += `<th>${colData}</th>`;
-        //   } else {
-        //     trHtml += '<th></th>';
-        //   }
-        // } else if (!colConf.isHeader) {
-        //   if (typeof colData !== 'undefined') {
-        //     trHtml += `<td>${colData}</td>`;
-        //   } else {
-        //     trHtml += '<td></td>';
-        //   }
-        // }
       }
       trHtml += '</tr>';
     }

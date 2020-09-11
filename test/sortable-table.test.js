@@ -292,4 +292,41 @@ describe('SortableTable', () => {
 
 
   });
+
+  describe('setCellRenderer()', () => {
+    test('default', () => {
+      createHTML();
+      const tableEle = document.querySelector('#my-table');
+      const st = new SortableTable();
+      st.setTable(tableEle);
+      // set callback function for table cell custom rendering
+      st.setCellRenderer((col, row) => {
+        const colValue = row[col.id];
+        // cell-is-a-header
+        if (col.isHeader) {
+          if (typeof colValue !== 'undefined') {
+            return `<th>${colValue}</th>`;
+          }
+          return '<th></th>';
+        }
+        // cell-is-not-a-header
+        if (typeof colValue !== 'undefined') {
+          return `<td>${colValue}</td>`;
+        }
+        return '<td></td>';
+      });
+      st.setData(data);
+      st.sort('name', 'asc');
+      const sortedData = st.getData();
+      const sortedDataOrder = sortedData.map(x => x.id);
+      expect(sortedDataOrder)
+        .toStrictEqual([1, 0, 2, 3]);
+
+      const originalDataOrder = data.map(x => x.id);
+      expect(originalDataOrder)
+        .toStrictEqual([0, 1, 2, 3]);
+    });
+
+
+  });
 });

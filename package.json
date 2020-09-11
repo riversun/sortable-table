@@ -1,6 +1,6 @@
 {
   "name": "@riversun/sortable-table",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Library template for both node and browser using ES6,Webpack,Babel,Jest,ESLint",
   "main": "lib/sortable-table.js",
   "scripts": {
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/riversun/sortable-table#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",

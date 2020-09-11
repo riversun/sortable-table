@@ -10,7 +10,7 @@ module.exports = (env, argv) => {
     mode: 'development',
     devServer: {
       open: true,
-      openPage: ['index.html','index_with_bootstrap.html'],
+      openPage: ['index.html', 'index_with_bootstrap.html', 'index_render_cell.html'],
       contentBase: path.join(__dirname, 'example'),
       watchContentBase: true,
       port: 3000,

@@ -21,6 +21,21 @@ export default class SortableTable {
     this.selectedColId = null;// active column
     this.eventEmitter = new EventEmitter(['sort']);
     this.listenerMgr = new ListenerManager();
+    this.fnCellRender = (col, row) => {
+      const colValue = row[col.id];
+      // cell-is-a-header
+      if (col.isHeader) {
+        if (typeof colValue !== 'undefined') {
+          return `<th>${colValue}</th>`;
+        }
+        return '<th></th>';
+      }
+      // cell-is-not-a-header
+      if (typeof colValue !== 'undefined') {
+        return `<td>${colValue}</td>`;
+      }
+      return '<td></td>';
+    };
   }
 
   /**
@@ -105,6 +120,10 @@ export default class SortableTable {
     this.rows = this._cloneRows(rows);
     this._updateTableRows(this.rows);
     return this;
+  }
+
+  setCellRenderer(fnCellRender) {
+    this.fnCellRender = fnCellRender;
   }
 
   /**
@@ -297,23 +316,24 @@ export default class SortableTable {
     this._removeTbody();
 
     let trHtml = '<tbody>';
-    for (const rowData of this.rows) {
+    for (const row of this.rows) {
       trHtml += '<tr>';
       for (const colConf of this.colConfs.values()) {
-        const colData = rowData[colConf.id];
-        if (colConf.isHeader) {
-          if (typeof colData !== 'undefined') {
-            trHtml += `<th>${colData}</th>`;
-          } else {
-            trHtml += '<th></th>';
-          }
-        } else if (!colConf.isHeader) {
-          if (typeof colData !== 'undefined') {
-            trHtml += `<td>${colData}</td>`;
-          } else {
-            trHtml += '<td></td>';
-          }
-        }
+        // const colData = rowData[colConf.id];
+        trHtml += this.fnCellRender(colConf, row);
+        // if (colConf.isHeader) {
+        //   if (typeof colData !== 'undefined') {
+        //     trHtml += `<th>${colData}</th>`;
+        //   } else {
+        //     trHtml += '<th></th>';
+        //   }
+        // } else if (!colConf.isHeader) {
+        //   if (typeof colData !== 'undefined') {
+        //     trHtml += `<td>${colData}</td>`;
+        //   } else {
+        //     trHtml += '<td></td>';
+        //   }
+        // }
       }
       trHtml += '</tr>';
     }

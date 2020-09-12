@@ -1,6 +1,6 @@
 {
   "name": "@riversun/sortable-table",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Library template for both node and browser using ES6,Webpack,Babel,Jest,ESLint",
   "main": "lib/sortable-table.js",
   "scripts": {

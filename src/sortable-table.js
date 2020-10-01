@@ -150,7 +150,6 @@ export default class SortableTable {
     return this.rows;
   }
 
-
   /*
    * Sort with column id(property name)
    * @param colId

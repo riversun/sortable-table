@@ -40,7 +40,7 @@ or
 - **use `<script>` tag**  from CDN
 
 ```html                                      
-<script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table@1.0.0/lib/sortable-table.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table/lib/sortable-table.js"></script>
 ```
 
 # Usage
@@ -79,7 +79,7 @@ The **data-id** attribute is linked to the key in data.
     </table>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table@1.0.0/lib/sortable-table.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@riversun/sortable-table/lib/sortable-table.js"></script>
 <script>
 
   const data = [
@@ -134,6 +134,8 @@ The **data-id** attribute is linked to the key in data.
 ## Custom rendering cells
 
 You can customize cell-rendering by specifying rendering function with #setCellRenderer like as follows. 
+
+Run on [PEN](https://codepen.io/riversun/pen/mdPZemb)
 
 ```html
 <!DOCTYPE html>

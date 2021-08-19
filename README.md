@@ -3,7 +3,6 @@
 [![npm version](https://badge.fury.io/js/%40riversun%2Fsortable-table.png)](https://badge.fury.io/js/%40riversun%2Fsortable-table)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/riversun/sortable-table.svg?style=shield)](https://circleci.com/gh/riversun/sortable-table)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/281c9676d22a487491df79f5d738e9f9)](https://www.codacy.com/manual/riversun/sortable-table?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=riversun/sortable-table&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/riversun/sortable-table/badge.svg)](https://coveralls.io/github/riversun/sortable-table)
 
 This library makes tables sortable.
